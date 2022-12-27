@@ -23,11 +23,11 @@ export default function SignUp(){
     const handleSignUp = async (event) => {
       event.preventDefault();
 
-    //   const emailExists = await doesUserNameExist
-    //   try {
-    //   } catch (error) {
+      const emailExists = await doesUserNameExist(emailAddress);
+      try {
+      } catch (error) {
         
-    //   }
+      }
     };
 
     useEffect(() => {
