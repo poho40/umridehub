@@ -26,7 +26,6 @@ export default function Login(){
         setEmailAddress('');
         setPassword('');
         setError('Incorrect email or password')
-        
       }
     };
 
