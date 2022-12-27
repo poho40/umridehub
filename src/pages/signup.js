@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faKey } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { doesEmailExist } from "../services/firebase";
 
 
 export default function SignUp(){
@@ -23,10 +24,39 @@ export default function SignUp(){
     const handleSignUp = async (event) => {
       event.preventDefault();
 
-      const emailExists = await doesUserNameExist(emailAddress);
-      try {
-      } catch (error) {
-        
+      const emailExists = await doesEmailExist(emailAddress);
+
+      if (emailExists.length == 0){
+        try {
+          const createdUserResult = await firebase
+            .auth()
+            .createUserWithEmailAndPassword(emailAddress, password);
+
+            //auth within firebase
+              // => emailAdress & password & fullname
+
+            await createdUserResult.user.updateProfile({
+              displayName: fullName
+            });
+
+            await firebase.firestore().collection('users').add({
+              userId: createdUserResult.user.uid,
+              fullName,
+              emailAddress: emailAddress.toLowerCase(),
+              dateCreated: Date.now()
+            });
+
+            history(ROUTES.DASHBOARD);
+
+        } catch (error) {
+          setFullName('');
+          setEmailAddress('');
+          setPassword('');
+          setError(error.message);
+
+        }
+      } else{
+        setError('A profile is already associated with this email. Please select a different email address')
       }
     };
 
