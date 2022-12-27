@@ -26,8 +26,21 @@ export default function Header() {
                 <div className="text-gray-700 text-center flex items-center align-items">
                     {user ? (
                         <>
-                            <Link to={ROUTES.DASHBOARD} arial-label = "Dashboard">
+                            <Link to={ROUTES.DASHBOARD}
+                            aria-label = "Dashboard">
+                                <p>home button</p>
                             </Link>
+                            
+                            <button 
+                                type="button"
+                                title="Sign Out"
+                                onClick={()=> firebase.auth().signOut()}
+                                onKeyDown = {(event)=>{
+                                    if(event.key==='Enter'){
+                                        firebase.auth().signOut();
+                                    }
+                                }}
+                            />
                         </>
                     ) :(
                         <>
