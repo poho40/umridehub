@@ -13,14 +13,14 @@ export default function App() {
   const {user} = useAuthListener();
 
   return (
-    <UserContext.Provider value = {user}>
+    <UserContext.Provider value = {{user}}>
       <Router>
         <Suspense fallback = {<p>loading...</p>}>
           <Routes>
             <Route path = {ROUTES.LOGIN} element={<Login/>}/>
             <Route path = {ROUTES.SIGNUP} element={<SignUp/>}/>
             <Route path = {ROUTES.DASHBOARD} element={<Dashboard/>}/>
-            <Route path = {ROUTES.NOTFOUND} element = {<NotFound/>}/>
+            <Route element = {<NotFound/>}/>
           </Routes>
         </Suspense>
       </Router>
