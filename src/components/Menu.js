@@ -16,15 +16,20 @@ export default function Menu() {
     const {user} = useContext(UserContext);
     return (
         <div class="dropdown">
-        <button class="dropbtn"><FontAwesomeIcon icon={faUser} className="mr-3 fa-black" style={{display: "inline-block",
+        <button class="dropbtn"><FontAwesomeIcon icon={faUser} className="fa-black" style={{display: "inline-block",
   borderRadius: "50px",
   boxShadow: "0 0 2px #00274C",
   color: "#FFCB05",
   marginTop: "10%",
   padding: "0.5em 0.6em"}}> </FontAwesomeIcon><div className = "flex items-center cursor-pointer mr-3">
-                  {user.displayName}
                 </div></button>
         <div class="dropdown-content">
+                <div className='text-bold'>
+                    <b>{user.displayName}</b>
+                </div>
+                <div className='text-bold'>
+                    {user.emailAddress}
+                </div>
                 <Link to={ROUTES.DASHBOARD}>
                     Dashboard
                 </Link>
