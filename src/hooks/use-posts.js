@@ -11,15 +11,12 @@ export default function usePosts(){
 
     useEffect(() =>{
         async function getRecentPosts(){
-
-            const [{others}] = await getUserByUserId(userId);
+            const [others] = await getUserByUserId(userId);
             let otherPosts = [];
 
-            if(others.length > 0){
-                otherPosts =  await recentPosts(userId, others);
-            }
-            
-            otherPosts.sort((a,b) => b.dateCreated - a.dateCreated());
+            otherPosts =  await recentPosts(userId);
+            console.log('otherPosts',otherPosts);
+            otherPosts.sort((a,b) => b.dateCreated - a.dateCreated);
             setPosts(otherPosts);
         }
 
