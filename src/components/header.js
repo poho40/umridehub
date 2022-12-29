@@ -25,6 +25,7 @@ export default function Header() {
                 <div className="text-gray-700 text-center flex items-center align-items">
                 {user ? (     
                     <>
+                  {user.displayName}
                   <Menu/>
                 </> 
                 ) : (

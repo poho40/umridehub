@@ -31,30 +31,32 @@ const Menu = props => {
     const {firebase} = useContext(FirebaseContext);
     const {user} = useContext(UserContext);
     return (
-        <div className="Menu">
-            <div className={"m-item m-logo"} 
+        <div className="Menu" style={{ marginTop: '-1%'}}>
+            <div className={"m-item m-logo bg-blue-medium w-full rounded h-8 font-bold"} 
                 onClick={() => setOpenMenu(!openMenu)}>
-                <FontAwesomeIcon icon={faUser} className="mr-3 fa-black"> <div className = "flex items-center cursor-pointer mr-3">
-                  {user.displayName}
-                </div></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faUser} className="fa-black" style={{display: "inline-block",
+  borderRadius: "100px",
+  boxShadow: "0 0 2px #00274C",
+  color: "#FFCB05",
+  padding: "0.5em 0.6em"}}> </FontAwesomeIcon>
             </div>
-            <div className={setClassNames(1)}>
+            <div className={setClassNames(1)} style={{  marginTop: "1.5em", marginBottom: "0.5em"}}>
 
                 <Link to={ROUTES.DASHBOARD}>
                     Dashboard
                 </Link>
             </div>
-            <div className={setClassNames(2)}>
+            <div className={setClassNames(2)} style={{ marginTop: "1.5em", marginBottom: "0.5em"}}>
                 <Link to={ROUTES.PROFILE}>
                         Profile
                 </Link>
             </div>
-            <div className={setClassNames(3)}>
+            <div className={setClassNames(3)} style={{  marginTop: "1.5em", marginBottom: "0.5em"}}>
                  <Link to={ROUTES.CREATEPOST}>
                         CreatePost
                 </Link>
             </div>
-            <div className={setClassNames(4)}
+            <div className={setClassNames(4) } style={{  marginTop: "1.5em", marginBottom: "0.5em"}}
                 onClick={() => pushToRoute(ROUTES.LOGIN)}>
                 <Link to={ROUTES.LOGIN}  onClick={() => {
                     firebase.auth().signOut();
