@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../context/user";
-import { getUserByUserId, getPosts } from "../services/firebase";
+import { getUserByUserId, recentPosts } from "../services/firebase";
 
 export default function usePosts(){
     const[posts, setPosts] = useState(null);
@@ -12,15 +12,20 @@ export default function usePosts(){
     useEffect(() =>{
         async function getRecentPosts(){
 
-            const {others} = await getUserByUserId(userId);
+            const [{others}] = await getUserByUserId(userId);
             let otherPosts = [];
 
             if(others.length > 0){
-                otherPosts =  await getPosts(userId, others);
+                otherPosts =  await recentPosts(userId, others);
             }
             
+            otherPosts.sort((a,b) => b.dateCreated - a.dateCreated());
+            setPosts(otherPosts);
         }
-    },[]);
+
+        getRecentPosts();
+
+    },[userId]);
 
     return{posts};
 }
