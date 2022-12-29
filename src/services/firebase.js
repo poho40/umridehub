@@ -21,3 +21,12 @@ export async function getUserByUserId(userId){
 
     return user;
 }
+
+export async function getPosts(userId){
+    const result = await firebase.firestore().collection('posts').where('userId', '!=', userId).get();
+
+    const otherUserPosts = result.docs.map((post) => ({
+        ...post.data(),
+        docId: post.id
+    }));
+}
