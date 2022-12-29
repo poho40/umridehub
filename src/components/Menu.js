@@ -24,7 +24,13 @@ export default function Menu() {
   padding: "0.5em 0.6em"}}> </FontAwesomeIcon><div className = "flex items-center cursor-pointer mr-3">
                 </div></button>
         <div class="dropdown-content">
+<<<<<<< HEAD
                 <b>{user.displayName}</b>
+=======
+                <div className='text-bold'>
+                    <b>{user.displayName}</b>
+                </div>
+>>>>>>> refs/remotes/origin/main
                 <Link to={ROUTES.DASHBOARD}>
                     Dashboard
                 </Link>
