@@ -8,6 +8,7 @@ const Login = lazy(()=>import('./pages/login'));
 const SignUp = lazy(()=>import('./pages/signup'));
 const Dashboard = lazy(()=>import('./pages/dashboard'));
 const Profile = lazy(()=>import('./pages/profile'));
+const CreatePost = lazy(()=>import('./pages/createPost'));
 const NotFound = lazy(()=>import('./pages/notfound'));
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
             <Route path = {ROUTES.SIGNUP} element={<SignUp/>}/>
             <Route path = {ROUTES.DASHBOARD} element={<Dashboard/>}/>
             <Route path = {ROUTES.PROFILE} element={<Profile/>}/>
+            <Route path = {ROUTES.CREATEPOST} element={<CreatePost/>}/>
             <Route element = {<NotFound/>}/>
           </Routes>
         </Suspense>

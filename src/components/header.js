@@ -54,6 +54,9 @@ export default function Header() {
                 <Link to={ROUTES.PROFILE} aria-label="Profile">
                   <FontAwesomeIcon icon={faUser} ></FontAwesomeIcon>
                 </Link>
+                <Link to={ROUTES.CREATEPOST} aria-label="CreatePOst">
+                  <FontAwesomeIcon icon={faUser} ></FontAwesomeIcon>
+                </Link>
                 </> 
                 ) : (
                     <>
