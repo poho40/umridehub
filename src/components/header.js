@@ -1,15 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import FirebaseContext from "../context/firebase";
 import UserContext from "../context/user";
 import * as ROUTES from '../constants/routes'
 import Dashboard from "../pages/dashboard";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome,faSignOut,faUser,faPlus } from '@fortawesome/free-solid-svg-icons'
+import Menu from "./Menu";
 
 
 export default function Header() {
-    const {firebase} = useContext(FirebaseContext);
     const {user} = useContext(UserContext);
 
 
@@ -28,39 +25,7 @@ export default function Header() {
                 <div className="text-gray-700 text-center flex items-center align-items">
                 {user ? (     
                     <>
-                <Link to={ROUTES.DASHBOARD} aria-label="Dashboard">
-                  <FontAwesomeIcon icon={faHome} className = "mr-3"></FontAwesomeIcon>
-                </Link>
-
-                <Link to={ROUTES.PROFILE} aria-label="Profile">
-                  <FontAwesomeIcon icon={faUser} className="mr-3"></FontAwesomeIcon>
-                </Link>
-
-
-                <Link to={ROUTES.CREATEPOST} aria-label="CreatePOst">
-                  <FontAwesomeIcon icon={faPlus} className="mr-3"></FontAwesomeIcon>
-                </Link>
-
-
-                <div className = "flex items-center cursor-pointer mr-3">
-                  {user.displayName}
-                </div>
-
-                <button
-                  type="button"
-                  title="Sign Out"
-                  onClick={() => {
-                    firebase.auth().signOut();
-                  }}
-                  onKeyDown={(event) => {
-                    if (event.key === 'Enter') {
-                      firebase.auth().signOut();
-                    }
-                  }}
-                >
-                  <FontAwesomeIcon icon={faSignOut} className = "mr-3"></FontAwesomeIcon>
-                </button>
-
+                  <Menu/>
                 </> 
                 ) : (
                     <>

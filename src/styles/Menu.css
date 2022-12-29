@@ -1,0 +1,57 @@
+.Menu{
+    position: relative;
+    margin: 2em 3em;
+}
+
+.m-item{
+    position: absolute;
+    top: 0;
+
+    width: 5em;
+    background-color: #FAFAFA;
+    box-shadow: 1px 1px 1px #FAFAFA;
+
+    padding: 0.2em;
+
+    border-radius: 0em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1em;
+    color: #EDFFEC;
+    cursor: pointer;
+}
+.m-item:hover{
+    border: 1px solid black;
+    color:blue;
+}
+.m-logo{
+    z-index: 1;
+}
+
+.open-1{
+    position:absolute;
+    top: 1.8em;
+    background-color: #FAFAFA;
+    color:black;
+}
+.open-2{
+    top: 3.6em;
+    background-color: white;
+    color:black;
+}
+.open-3{
+    top: 5.4em;
+    background-color: white;
+    color:black;
+}
+.open-4{
+    top: 7.2em;
+    background-color: white;
+    color:black;
+}
+.fa-black {
+    color : black;
+}
