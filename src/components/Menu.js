@@ -24,21 +24,15 @@ export default function Menu() {
   padding: "0.5em 0.6em"}}> </FontAwesomeIcon><div className = "flex items-center cursor-pointer mr-3">
                 </div></button>
         <div class="dropdown-content">
-<<<<<<< HEAD
                 <b>{user.displayName}</b>
-=======
-                <div className='text-bold'>
-                    <b>{user.displayName}</b>
-                </div>
->>>>>>> refs/remotes/origin/main
                 <Link to={ROUTES.DASHBOARD}>
-                    Dashboard
+                <FontAwesomeIcon icon={faHome} className="fa-black"></FontAwesomeIcon> Dashboard
                 </Link>
                 <Link to={ROUTES.PROFILE}>
-                    Profile
+                <FontAwesomeIcon icon={faUser} className="fa-black"></FontAwesomeIcon> Profile
                 </Link>
                 <Link to={ROUTES.CREATEPOST}>
-                    Create Post
+                <FontAwesomeIcon icon={faPlus} className="fa-black"></FontAwesomeIcon> Create Post
                 </Link>
                 <Link to={ROUTES.LOGIN}  onClick={() => {
                     firebase.auth().signOut();
@@ -47,7 +41,7 @@ export default function Menu() {
                     if (event.key === 'Enter') {
                       firebase.auth().signOut();
                     }}}>
-                    <i>Sign out</i>
+                   <FontAwesomeIcon icon={faSignOut} className="fa-black"></FontAwesomeIcon> <i>Sign out</i>
                 </Link>
         </div>
       </div>
