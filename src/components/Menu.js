@@ -16,9 +16,9 @@ export default function Menu() {
     const {user} = useContext(UserContext);
     return (
         <div class="dropdown">
-        <button class="dropbtn"><FontAwesomeIcon icon={faUser} className="mr-3 fa-black"> <div className = "flex items-center cursor-pointer mr-3">
+        <button class="dropbtn"><FontAwesomeIcon icon={faUser} className="mr-3 fa-black"> </FontAwesomeIcon><div className = "flex items-center cursor-pointer mr-3">
                   {user.displayName}
-                </div></FontAwesomeIcon></button>
+                </div></button>
         <div class="dropdown-content">
                 <Link to={ROUTES.DASHBOARD}>
                     Dashboard
