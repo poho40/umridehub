@@ -25,16 +25,17 @@ export async function getUserByUserId(userId){
 export async function recentPosts(userId){
     const result = await firebase.firestore().collection('photos').where('userId', '!=', userId).get();
 
-    const otherUserPosts = result.docs.map((post) => ({
-        ...post.data(),
-        docId: post.id
+    const otherUserPosts = result.docs.map((photo) => ({
+        ...photo.data(),
+        docId: photo.id
     }));
 
     const postsWithUserDetails = await Promise.all(
-        otherUserPosts.map(async (post) => {
-            const user = await getUserByUserId(post);
+        otherUserPosts.map(async (photo) => {
+            const user = await getUserByUserId(photo.userId);
             const {emailAddress} = user[0];
-            return {emailAddress, ...post};
+            console.log('photo.userId', photo.userId);
+            return {emailAddress, ...photo};
         })
     )
 

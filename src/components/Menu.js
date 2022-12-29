@@ -8,15 +8,16 @@ import '../styles/Menu.css';
 import FirebaseContext from "../context/firebase";
 import { useContext } from "react";
 import UserContext from "../context/user";
-
+import useUser from '../hooks/use-user';
 
 
 export default function Menu() {
     const {firebase} = useContext(FirebaseContext);
-    const {user} = useContext(UserContext);
+    const {user} = useUser();
     return (
-        <div class="dropdown">
-        <button class="dropbtn"><FontAwesomeIcon icon={faUser} className="fa-black" style={{display: "inline-block",
+        <div className="dropdown">
+        <div className="container mx-auto max-w-screen-lg h-full">
+        <button className="dropbtn"><FontAwesomeIcon icon={faUser} className="fa-black" style={{display: "inline-block",
   borderRadius: "50px",
   boxShadow: "0 0 2px #00274C",
   color: "#FFCB05",
@@ -24,7 +25,8 @@ export default function Menu() {
   padding: "0.5em 0.6em"}}> </FontAwesomeIcon><div className = "flex items-center cursor-pointer mr-3">
                 </div></button>
         <div class="dropdown-content">
-                <b>{user.displayName}</b>
+                <p><b>{user.fullName}</b></p>
+                <p>{user.emailAddress}</p>
                 <Link to={ROUTES.DASHBOARD}>
                 <FontAwesomeIcon icon={faHome} className="fa-black"></FontAwesomeIcon> Dashboard
                 </Link>
@@ -43,6 +45,7 @@ export default function Menu() {
                     }}}>
                    <FontAwesomeIcon icon={faSignOut} className="fa-black"></FontAwesomeIcon> <i>Sign out</i>
                 </Link>
+        </div>
         </div>
       </div>
   );
