@@ -69,6 +69,14 @@ export default function Header() {
                       Sign up
                       </button>
                     </Link>
+                    <Link to={ROUTES.MYPOSTS}>
+                      <button
+                      type = "button"
+                      className="font-bold text-sm-rounded text-blue-medium w-20 h-8"
+                      >
+                      My Posts
+                      </button>
+                    </Link>
                     </>
                 )}
                 </div>
