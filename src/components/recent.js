@@ -7,14 +7,14 @@ export default function Recent() {
 
 
     return (<div className="container col-span-">
-        {posts ? (
+        {!posts ? (
             <>
             {[...new Array(4)].map((_, index) =>
                 <Skeleton key = {index} count = {1} width = {320} height = {400} className = "mb-3"/>
             )}
             </>
         ) : (
-            posts.map((content) => <p>{content.caption}</p>)
+            posts.map((content) => <p>{content.title}</p>)
         )}
     </div>
     );
