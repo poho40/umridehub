@@ -24,12 +24,7 @@ export default function Menu() {
   padding: "0.5em 0.6em"}}> </FontAwesomeIcon><div className = "flex items-center cursor-pointer mr-3">
                 </div></button>
         <div class="dropdown-content">
-                <div className='text-bold'>
-                    <b>{user.displayName}</b>
-                </div>
-                <div className='text-bold'>
-                    {user.emailAddress}
-                </div>
+                <b>{user.displayName}</b>
                 <Link to={ROUTES.DASHBOARD}>
                     Dashboard
                 </Link>
@@ -46,7 +41,7 @@ export default function Menu() {
                     if (event.key === 'Enter') {
                       firebase.auth().signOut();
                     }}}>
-                    Sign out
+                    <i>Sign out</i>
                 </Link>
         </div>
       </div>
