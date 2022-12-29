@@ -7,6 +7,7 @@ import Dashboard from "../pages/dashboard";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome } from '@fortawesome/free-solid-svg-icons'
 import { faSignOut } from '@fortawesome/free-solid-svg-icons'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function Header() {
@@ -47,9 +48,12 @@ export default function Header() {
                 >
                   <FontAwesomeIcon icon={faSignOut} className = "mr-3"></FontAwesomeIcon>
                 </button>
-                <div className = "flex items-center cursor-pointer">
+                <div className = "flex items-center cursor-pointer mr-3">
                   {user.displayName}
                 </div>
+                <Link to={ROUTES.PROFILE} aria-label="Profile">
+                  <FontAwesomeIcon icon={faUser} ></FontAwesomeIcon>
+                </Link>
                 </> 
                 ) : (
                     <>
@@ -67,14 +71,6 @@ export default function Header() {
                       className="font-bold text-sm-rounded text-blue-medium w-20 h-8"
                       >
                       Sign up
-                      </button>
-                    </Link>
-                    <Link to={ROUTES.MYPOSTS}>
-                      <button
-                      type = "button"
-                      className="font-bold text-sm-rounded text-blue-medium w-20 h-8"
-                      >
-                      My Posts
                       </button>
                     </Link>
                     </>
