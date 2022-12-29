@@ -27,9 +27,6 @@ export default function Menu() {
                 <div className='text-bold'>
                     <b>{user.displayName}</b>
                 </div>
-                <div className='text-bold'>
-                    {user.emailAddress}
-                </div>
                 <Link to={ROUTES.DASHBOARD}>
                     Dashboard
                 </Link>
