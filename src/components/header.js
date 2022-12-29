@@ -5,9 +5,7 @@ import UserContext from "../context/user";
 import * as ROUTES from '../constants/routes'
 import Dashboard from "../pages/dashboard";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome } from '@fortawesome/free-solid-svg-icons'
-import { faSignOut } from '@fortawesome/free-solid-svg-icons'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faHome,faSignOut,faUser,faPlus } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function Header() {
@@ -34,6 +32,20 @@ export default function Header() {
                   <FontAwesomeIcon icon={faHome} className = "mr-3"></FontAwesomeIcon>
                 </Link>
 
+                <Link to={ROUTES.PROFILE} aria-label="Profile">
+                  <FontAwesomeIcon icon={faUser} className="mr-3"></FontAwesomeIcon>
+                </Link>
+
+
+                <Link to={ROUTES.CREATEPOST} aria-label="CreatePOst">
+                  <FontAwesomeIcon icon={faPlus} className="mr-3"></FontAwesomeIcon>
+                </Link>
+
+
+                <div className = "flex items-center cursor-pointer mr-3">
+                  {user.displayName}
+                </div>
+
                 <button
                   type="button"
                   title="Sign Out"
@@ -48,15 +60,7 @@ export default function Header() {
                 >
                   <FontAwesomeIcon icon={faSignOut} className = "mr-3"></FontAwesomeIcon>
                 </button>
-                <div className = "flex items-center cursor-pointer mr-3">
-                  {user.displayName}
-                </div>
-                <Link to={ROUTES.PROFILE} aria-label="Profile">
-                  <FontAwesomeIcon icon={faUser} ></FontAwesomeIcon>
-                </Link>
-                <Link to={ROUTES.CREATEPOST} aria-label="CreatePOst">
-                  <FontAwesomeIcon icon={faUser} ></FontAwesomeIcon>
-                </Link>
+
                 </> 
                 ) : (
                     <>
