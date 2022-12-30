@@ -8,6 +8,12 @@ Document
 /**
 Use a better box model (opinionated).
 */
+.text-right {
+  text-align: right;
+}
+.font-normal {
+  font-weight : none;
+}
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
