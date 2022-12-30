@@ -1,6 +1,7 @@
 import Skeleton from "react-loading-skeleton"
 import usePosts from "../hooks/use-posts"
 import useUser from "../hooks/use-user"
+import SimpleDateTime  from 'react-simple-timestamp-to-date';
 
 export default function Recent() {
     const {posts} = usePosts(); 
@@ -14,18 +15,13 @@ export default function Recent() {
             )}
             </>
         ) : (
-            posts.map((content) => <div class="max-w-sm rounded overflow-hidden shadow-lg">
-            <div class="px-6 py-4">
-              <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
-              <p class="text-gray-700 text-base">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-              </p>
-            </div>
-            <div class="px-6 pt-4 pb-2">
-              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-            </div>
+            posts.map((content) =><div key = {content.docId} className="card">
+            <h1>{content.fullName}</h1>
+            <p><SimpleDateTime dateFormat = "MDY" dateSeparator="/" timeSeparator="-" showTime = "0">{content.dateCreated}</SimpleDateTime></p>
+            <p>Departure Date/Time : <SimpleDateTime dateFormat = "MDY" dateSeparator="/" timeSeparator=":" meridians = "1">{content.departureDateTime}</SimpleDateTime></p>
+            <p>Departure : {content.departureLocation}</p>
+            <p>Destination : {content.destinationLocation}</p>
+            <p><button>Add comment</button></p>
           </div>)
         )}
     </div>
