@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import Comments from './comment';
 import SimpleDateTime from 'react-simple-timestamp-to-date';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faPlaneDeparture, faCalendar, faClock, faPlaneArrival } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPlaneDeparture, faCalendar, faClock, faPlaneArrival, faRoad } from '@fortawesome/free-solid-svg-icons';
 
 export default function Card({ content }) {
     const commentInput = useRef(null);
@@ -11,13 +11,18 @@ export default function Card({ content }) {
     <div>
     <div className='mb-5'>
     <div className="p-4 pt-1 pb-4 bg-white border-t border-b border-gray-primary">
-    <h1 className='font-bold'>{content.title} <span style={{float:'right'}}>{content.fullName}</span></h1>
-        <p className="text-right"><SimpleDateTime dateFormat = "MDY" dateSeparator="/" timeSeparator="-" showTime = "0">{content.dateCreated}</SimpleDateTime></p>
+    <div className="grid grid-cols-5">
+      <h1 className='font-bold col-span-3'>{content.title}</h1>
+      <h1 className='col-span-1'></h1>
+      <h1 className='font-bold float-right' style={{textAlign:'right'}}>{content.fullName}</h1>
+    </div>
+            <p className="text-right"><SimpleDateTime dateFormat = "MDY" dateSeparator="/" timeSeparator="-" showTime = "0">{content.dateCreated}</SimpleDateTime></p>
             <p className="text-right">{content.emailAddress}</p>
             <div className='text-center mb-2'><FontAwesomeIcon icon={faCalendar} className="fa-black mr-3"></FontAwesomeIcon> <SimpleDateTime dateFormat = "MDY" timeFormat = "HM" dateSeparator="/" timeSeparator=":" showTime = "0" meridians = "1">{content.departureDateTime}</SimpleDateTime></div>
             <div className='text-center mb-2'><FontAwesomeIcon icon={faClock} className="fa-black mr-4"></FontAwesomeIcon><SimpleDateTime dateFormat = "MDY" timeFormat = "MH" dateSeparator="/" timeSeparator=":" showDate = "0" meridians = "1">{content.departureDateTime}</SimpleDateTime></div>
             <div className='text-center mb-2'><FontAwesomeIcon icon={faPlaneDeparture} className="fa-black mr-3"></FontAwesomeIcon> {content.departureLocation}</div>
             <div className='text-center mb-2'><FontAwesomeIcon icon={faPlaneArrival} className="fa-black mr-3"></FontAwesomeIcon> {content.destinationLocation}</div>
+            <div className='text-center mb-2'><FontAwesomeIcon icon={faRoad} className="fa-black mr-3"></FontAwesomeIcon> Mode of Transport: {content.transportation}</div>
       </div>
         <Comments
           docId={content.docId}
