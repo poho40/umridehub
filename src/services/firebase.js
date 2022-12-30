@@ -33,7 +33,6 @@ export async function recentPosts(userId){
         otherUserPosts.map(async (photo) => {
             const user = await getUserByUserId(photo.userId);
             const {emailAddress} = user[0];
-            console.log('photo.userId', photo.userId);
             return {emailAddress, ...photo};
         })
     )
