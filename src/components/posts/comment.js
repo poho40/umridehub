@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { differenceInMilliseconds, formatDistance } from 'date-fns';
-import AddComment from '../addComment';
+import AddComment from './addComment';
 
 export default function Comments({ docId, comments: allComments, posted, commentInput }) {
   const [comments, setComments] = useState(allComments);
