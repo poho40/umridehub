@@ -7,8 +7,9 @@ export default function Card({ content }) {
     const commentInput = useRef(null);
     return (
     <div>
-    <div className="p-4 pt-1 pb-4">
-        <h1>{content.fullName}</h1>
+    <div className='mb-5'>
+    <div className="p-4 pt-1 pb-4 bg-white border-t border-gray-primary">
+        <h1 className='font-bold'>{content.fullName}</h1>
             <p>Contact Info : {content.emailAddress}</p>
             <p>Date Created : <SimpleDateTime dateFormat = "MDY" dateSeparator="/" timeSeparator="-" showTime = "0">{content.dateCreated}</SimpleDateTime></p>
             <p>Departure Date : <SimpleDateTime dateFormat = "MDY" timeFormat = "HM" dateSeparator="/" timeSeparator=":" showTime = "0" meridians = "1">{content.departureDateTime}</SimpleDateTime></p>
@@ -23,7 +24,7 @@ export default function Card({ content }) {
           commentInput={commentInput}
         />
       </div>
-
+    </div>
     );
   }
 

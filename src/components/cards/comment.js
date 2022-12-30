@@ -11,7 +11,7 @@ export default function Comments({ docId, comments: allComments, posted, comment
   };
   return (
     <>
-      <div className="p-4 pt-1 pb-4">
+      <div className="p-4 pt-1 pb-4 bg-white">
         {comments.slice(0, commentsSlice).map((item) => (
           <p key={`${item.comment}-${item.displayName}`} className="mb-1">
               <span className="mr-1 font-bold">{item.displayName}</span>
