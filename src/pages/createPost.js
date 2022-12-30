@@ -27,13 +27,12 @@ import UserContext from "../context/user";
           event.preventDefault();
       
           setPost([{comments, title, departureLocation, destinationLocation, dateCreated, departureDateTime, transportation, displayName, uid}]);
-        //   return firebase
-        //     .firestore()
-        //     .collection('photos')
-        //     .update({
-        //       FieldValue.arrayUnion({ title, departureLocation, destinationLocation, dateCreated, departureDateTime, transportation, displayName })
-        //     });
-        
+          return firebase
+            .firestore()
+            .collection('photos')
+            .add({...post
+            });
+
         };
     return(
         <div className="bg-gray-background">
