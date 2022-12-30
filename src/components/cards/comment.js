@@ -5,7 +5,7 @@ import AddComment from './addComment';
 
 export default function Comments({ docId, comments: allComments, posted, commentInput }) {
   const [comments, setComments] = useState(allComments);
-  const [commentsSlice, setCommentsSlice] = useState(3);
+  const [commentsSlice, setCommentsSlice] = useState(2);
   const showNextComments = () => {
     setCommentsSlice(commentsSlice + 3);
   };
@@ -34,6 +34,7 @@ export default function Comments({ docId, comments: allComments, posted, comment
         )}
         <p className="text-gray-base uppercase text-xs mt-2">
           {formatDistance(new Date(posted*1000), new Date())} ago
+          
           
         </p>
       </div>
