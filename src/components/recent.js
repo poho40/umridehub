@@ -17,7 +17,7 @@ export default function Recent() {
         ) : (
             posts.map((content) =><div key = {content.docId} className="card">
             <h1>{content.fullName}</h1>
-            <p><SimpleDateTime dateFormat = "MDY" dateSeparator="/" timeSeparator="-" showTime = "0">{content.dateCreated}</SimpleDateTime></p>
+            <p>Date Created : <SimpleDateTime dateFormat = "MDY" dateSeparator="/" timeSeparator="-" showTime = "0">{content.dateCreated}</SimpleDateTime></p>
             <p>Departure Date/Time : <SimpleDateTime dateFormat = "MDY" dateSeparator="/" timeSeparator=":" meridians = "1">{content.departureDateTime}</SimpleDateTime></p>
             <p>Departure : {content.departureLocation}</p>
             <p>Destination : {content.destinationLocation}</p>
