@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import Comments from './comment';
 import SimpleDateTime from 'react-simple-timestamp-to-date';
 
-export default function Post({ content }) {
+export default function Card({ content }) {
     const commentInput = useRef(null);
     return (
     <div>
@@ -35,7 +35,7 @@ export default function Post({ content }) {
 
 
 
-Post.propTypes = {
+Card.propTypes = {
     content: PropTypes.shape({
       departureDateTime :  PropTypes.number.isRequired, 
       fullName: PropTypes.string.isRequired,
