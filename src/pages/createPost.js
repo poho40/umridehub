@@ -2,6 +2,8 @@ import Header from "../components/header";
 import { useEffect, useState, useContext } from "react";
 import FirebaseContext from "../context/firebase";
 import UserContext from "../context/user";
+import * as ROUTES from '../constants/routes';
+import { Link } from "react-router-dom";
 
     export default function AddPost() {
         useEffect(() => {
@@ -78,13 +80,12 @@ import UserContext from "../context/user";
       <input onChange={({ target }) => setDepartureDateTime(target.value)} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="Albuquerque"/>
     </div>
   </div>
-  <button
-          className={`text-sm font-bold text-blue-medium ${!post && 'opacity-25'}`}
-          type="button"
-          onClick={handlePost}
-        >
-          Post
-        </button>
+    <button
+      className={`text-sm font-bold text-blue-medium ${!post && 'opacity-25'}`}
+      type="button"
+      onClick={handlePost}>
+        <Link to={ROUTES.PROFILE}>Post</Link>
+    </button>
 </form>
  </div>
     )
