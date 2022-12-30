@@ -8,7 +8,7 @@ export default function Card({ content }) {
     return (
     <div>
     <div className='mb-5'>
-    <div className="p-4 pt-1 pb-4 bg-white border border-gray-primary">
+    <div className="p-4 pt-1 pb-4 bg-white border-t border-b border-gray-primary">
         <h1 className='font-bold'>{content.fullName}</h1>
             <p>Contact Info : {content.emailAddress}</p>
             <p>Date Created : <SimpleDateTime dateFormat = "MDY" dateSeparator="/" timeSeparator="-" showTime = "0">{content.dateCreated}</SimpleDateTime></p>
