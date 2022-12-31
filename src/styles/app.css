@@ -75,8 +75,6 @@ Use a better box model (opinionated).
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-}
 *,
 *::before,
 *::after {
@@ -270,6 +268,7 @@ button,
 [type='button'],
 [type='submit'] {
   -webkit-appearance: button;
+  appearance: button;
 }
 
 /**
@@ -554,7 +553,6 @@ iframe,
 embed,
 object {
   display: block;
-  vertical-align: middle;
 }
 
 /**
