@@ -15,6 +15,7 @@ export default function usePosts(){
             let otherPosts = [];
 
             otherPosts =  await recentPosts(userId);
+            console.log(otherPosts);
             otherPosts.sort((a,b) => b.dateCreated - a.dateCreated);
             setPosts(otherPosts);
         }

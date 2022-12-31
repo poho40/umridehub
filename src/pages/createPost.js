@@ -2,36 +2,39 @@ import Header from "../components/header";
 import { useEffect, useState, useContext } from "react";
 import FirebaseContext from "../context/firebase";
 import UserContext from "../context/user";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import * as ROUTES from '../constants/routes';
-import { Link } from "react-router-dom";
+
 
     export default function AddPost() {
         useEffect(() => {
             document.title = 'CreatePost';
         },[]);
-        const [post, setPost] = useState('');
         const comments = [];
         const [title, setTitle] = useState('');
         const [departureLocation, setDepartureLocation] = useState('');
         const [destinationLocation, setDestination] = useState('');
-        const [dateCreated, setDateCreated] = useState('');
-        const [departureDateTime, setDepartureDateTime] = useState('');
+        const [dateCreated] = useState(Date.now());
+        const [departureDate, setDepartureDate] = useState('');
+        const [departureTime, setDepartureTime] = useState('');
         const [transportation, setTransportation] = useState('');
         const { firebase, FieldValue } = useContext(FirebaseContext);
+        const history = useNavigate();
+        console.log(departureTime);
         const {
           user: { displayName }
         } = useContext(UserContext);
         const {
-            user: { uid }
+            user: { uid: userId }
           } = useContext(UserContext);
       
         const handlePost = (event) => {
           event.preventDefault();
-      
+          history(ROUTES.PROFILE)
           return firebase
             .firestore()
             .collection('photos')
-            .add({comments, title, departureLocation, destinationLocation, dateCreated, departureDateTime, transportation, displayName, uid}
+            .add({comments, title, departureLocation, destinationLocation, dateCreated, departureDate, departureTime, transportation, displayName, userId}
             );
         };
     return(
@@ -70,20 +73,26 @@ import { Link } from "react-router-dom";
       <input onChange={({ target }) => setTransportation(target.value)}  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe"/>
     </div>
   </div>
-  <div className="flex flex-wrap -mx-3 mb-2">
-    <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
-        Departure Date/Time
+  <div className="flex flex-wrap -mx-3 mb-6">
+  <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            Departure Date
       </label>
-      <input onChange={({ target }) => setDepartureDateTime(target.value)} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="Albuquerque"/>
+      <input onChange={({ target }) => setDepartureDate(target.value)} min = {new Date().toISOString().split("T")[0]} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="date" type="date"/>
+    </div>
+    <div className="w-full md:w-1/2 px-3">
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+        Departure Time
+      </label>
+      <input onChange={({ target }) => setDepartureTime(target.value)} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="time" type="time"/>
     </div>
   </div>
     <button
-      className={`text-sm font-bold text-blue-medium ${(!title || !departureDateTime || !departureLocation || !destinationLocation || !transportation) && 'opacity-25'}`}
+      className={`text-sm font-bold text-blue-medium ${(!title || !departureTime ||!departureDate || !departureLocation || !destinationLocation || !transportation) && 'opacity-25'}`}
       type="button"
       onClick={handlePost}
-        disabled = {(!title || !departureDateTime || !departureLocation || !destinationLocation || !transportation)}>
-            <Link to = {ROUTES.PROFILE}>Create Post</Link>
+        disabled = {(!title || !departureTime ||!departureDate || !departureLocation || !destinationLocation || !transportation)}>
+            Create Post
     </button>
 </form>
  </div>

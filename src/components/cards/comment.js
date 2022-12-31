@@ -33,7 +33,7 @@ export default function Comments({ docId, comments: allComments, posted, comment
           </button>
         )}
         <p className="text-gray-base uppercase text-xs mt-2">
-          {formatDistance(new Date(posted*1000), new Date())} ago
+          {formatDistance(new Date(posted), new Date())} ago
           
           
         </p>
