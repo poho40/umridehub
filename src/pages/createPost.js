@@ -28,13 +28,11 @@ import { Link } from "react-router-dom";
         const handlePost = (event) => {
           event.preventDefault();
       
-          setPost([{comments, title, departureLocation, destinationLocation, dateCreated, departureDateTime, transportation, displayName, uid}]);
           return firebase
             .firestore()
             .collection('photos')
-            .add({...post
-            });
-
+            .add({comments, title, departureLocation, destinationLocation, dateCreated, departureDateTime, transportation, displayName, uid}
+            );
         };
     return(
         <div className="bg-gray-background">
@@ -81,10 +79,11 @@ import { Link } from "react-router-dom";
     </div>
   </div>
     <button
-      className={`text-sm font-bold text-blue-medium ${!post && 'opacity-25'}`}
+      className={`text-sm font-bold text-blue-medium ${(!title || !departureDateTime || !departureLocation || !destinationLocation || !transportation) && 'opacity-25'}`}
       type="button"
-      onClick={handlePost}>
-        <Link to={ROUTES.PROFILE}>Post</Link>
+      onClick={handlePost}
+        disabled = {(!title || !departureDateTime || !departureLocation || !destinationLocation || !transportation)}>
+            <Link to = {ROUTES.PROFILE}>Create Post</Link>
     </button>
 </form>
  </div>
