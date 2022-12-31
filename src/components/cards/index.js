@@ -19,7 +19,6 @@ export default function Card({ content }) {
       if(meridian === 'PM') {
         int -=12;
       }
-      console.log(int);
       int += '';
       if(int === '0') {
         int = "12";
