@@ -22,6 +22,5 @@ export default function useUserPosts(){
         getRecentPosts();
 
     },[userId]);
-    console.log(posts);
     return{posts};
 }

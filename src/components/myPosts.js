@@ -1,8 +1,25 @@
 import Skeleton from "react-loading-skeleton"
 import useUserPosts from "../hooks/use-userPosts"
 import Card from "./cards";
+import FirebaseContext from "../context/firebase";
+import { useContext, useState } from "react";
+import { deleteFromFireStore } from "../services/firebase";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import * as ROUTES from '../constants/routes';
 
 export default function MyPosts() {
+    const { firebase, FieldValue } = useContext(FirebaseContext);
+    const history = useNavigate();
+    const refresh = () => window.location.reload(true)
+    function deletePost(docId) {
+        refresh();
+        return firebase
+        .firestore()
+        .collection("photos")
+        .doc(docId)
+        .delete()
+    }
+
     const {posts} = useUserPosts(); 
     return (<div className="container col-span-3">
         {!posts ? (
@@ -12,7 +29,7 @@ export default function MyPosts() {
             )}
             </>
         ) : (
-            posts.map((content) => <div className = "p-4 pt-1 pb-4 bg-white"><Card key = {content.docId} content = {content}/> <button className = "bg-red-500">hello</button></div>)
+            posts.map((content) => <div className = "p-4 pt-1 pb-4 bg-white"><Card key = {content.docId} content = {content}/><button className = "bg-red font-bold text-sm-rounded text-white w-20 h-8 rounded-full" onClick={() => deletePost(content.docId)}>Delete</button></div>)
         )}
     </div>
     );
