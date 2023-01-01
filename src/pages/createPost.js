@@ -40,7 +40,7 @@ import * as ROUTES from '../constants/routes';
     return(
         <div className="bg-gray-background">
             <Header />
-            <form className="w-full max-w-lg" method="POST"
+            <form className="w-full max-w-lg justify-center items-center" style={{width:"80%", alignContent:"center"}} method="POST"
             onSubmit={(event) => handlePost(event)
         }>
             <div className="flex flex-wrap -mx-3 mb-6">
@@ -52,8 +52,8 @@ import * as ROUTES from '../constants/routes';
       <p className="text-gray-600 text-xs italic"></p>
     </div>
   </div>
-  <div className="flex flex-wrap -mx-3 mb-6">
-    <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+  <div className="flex flex-wrap -mx-3 mb-3">
+    <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0 mr-3">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
             Departure Location
       </label>
@@ -66,18 +66,20 @@ import * as ROUTES from '../constants/routes';
       </label>
       <input onChange={({ target }) => setDestination(target.value)} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe"/>
     </div>
+  </div>
+  <div className="flex flex-wrap -mx-3 mb-6">
     <div className="w-full md:w-1/2 px-3">
-      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
-        Mode of Transportation
-      </label>
-      <select onChange={({ target }) => setTransportation(target.value)} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" name="cars">
-        <option value="Lyft">Lyft</option>
-        <option value="Uber">Uber</option>
-        <option value="Carpool">Carpool</option>
-        <option value="Taxi">Taxi</option>
-        <option value="Bus">Bus</option>
-        <option value="WeedCart">WeedCart</option>
-        </select>
+        <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+          Mode of Transportation
+        </label>
+        <select onChange={({ target }) => setTransportation(target.value)} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" name="cars">
+          <option value="Lyft">Lyft</option>
+          <option value="Uber">Uber</option>
+          <option value="Carpool">Carpool</option>
+          <option value="Taxi">Taxi</option>
+          <option value="Bus">Bus</option>
+          <option value="WeedCart">WeedCart</option>
+          </select>
     </div>
   </div>
   <div className="flex flex-wrap -mx-3 mb-6">
