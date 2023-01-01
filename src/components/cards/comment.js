@@ -11,11 +11,10 @@ export default function Comments({ docId, comments: allComments, posted, comment
   };
   return (
     <>
-      <div className="p-4 pt-1 pb-4 bg-white">
+      <div className="p-4 pt-1 pb-4 bg-white justify-between mx-auto max-w-screen-lg">
         {comments.slice(0, commentsSlice).map((item) => (
-          <p key={`${item.comment}-${item.displayName}`} className="mb-1">
-              <span className="mr-1 font-bold">{item.displayName}</span>
-            <span>{item.comment}</span>
+          <p key={`${item.comment}-${item.displayName}`} className="mb-1 col-span-2">
+              <span className="mr-1 font-bold">{item.displayName} <span style={{whiteSpace: "pre-line",wordWrap: "break-word", fontWeight:"normal"}}>{item.comment}</span></span>
           </p>
         ))}
         {comments.length >= 3 && commentsSlice < comments.length && (
