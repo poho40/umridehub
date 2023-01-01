@@ -20,14 +20,12 @@ import * as ROUTES from '../constants/routes';
         const [transportation, setTransportation] = useState('');
         const { firebase, FieldValue } = useContext(FirebaseContext);
         const history = useNavigate();
-        console.log(departureTime);
         const {
           user: { displayName }
         } = useContext(UserContext);
         const {
             user: { uid: userId }
           } = useContext(UserContext);
-          console.log(transportation)
         const handlePost = (event) => {
           event.preventDefault();
           history(ROUTES.PROFILE)
@@ -71,6 +69,7 @@ import * as ROUTES from '../constants/routes';
         Mode of Transportation
       </label>
       <select onChange={({ target }) => setTransportation(target.value)} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" name="cars">
+        <option disabled selected value> -- select an option -- </option>
         <option value="Lyft">Lyft</option>
         <option value="Uber">Uber</option>
         <option value="Carpool">Carpool</option>
