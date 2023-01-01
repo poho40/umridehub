@@ -29,7 +29,7 @@ export default function MyPosts() {
             )}
             </>
         ) : (
-            posts.map((content) => <div className = "p-4 pt-1 pb-4 bg-white"><Card key = {content.docId} content = {content}/><button className = "bg-blue-medium font-bold text-sm-rounded text-white w-20 h-8" onClick={() => deletePost(content.docId)}>hello</button></div>)
+            posts.map((content) => <div className = "p-4 pt-1 pb-4 bg-white"><Card key = {content.docId} content = {content}/><button className = "bg-red font-bold text-sm-rounded text-white w-20 h-8 rounded-full" onClick={() => deletePost(content.docId)}>Delete</button></div>)
         )}
     </div>
     );

@@ -621,6 +621,10 @@ video {
   --tw-bg-opacity: 0.5;
   border-color: rgba(47, 101, 160, var(--tw-bg-opacity));
 }
+.bg-red{
+  --tw-bg-opacity: 1;
+  background-color: red;
+}
 
 .bg-black-faded {
   background-color: #00000059;
