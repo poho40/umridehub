@@ -96,7 +96,8 @@ export default function SignUp(){
               <input
                 aria-label="Enter your email address"
                 type="text"
-                placeholder="Email Address"
+                placeholder="Enter Umich Email"
+                pattern="^[a-zA-Z0-9_.+-?/-=]+@umich.edu$"
                 className=" text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2"
                 onChange={({ target }) => setEmailAddress(target.value)}
                 value={emailAddress || ''}
