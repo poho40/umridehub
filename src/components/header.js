@@ -4,6 +4,8 @@ import UserContext from "../context/user";
 import * as ROUTES from '../constants/routes'
 import Dashboard from "../pages/dashboard";
 import Menu from "./Menu";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function Header() {
@@ -23,6 +25,7 @@ export default function Header() {
                     </h1>
                 </div>
                 <div className="text-gray-700 text-center flex items-center align-items">
+                <Link to = {ROUTES.SEARCH} ><FontAwesomeIcon className="mr-3" icon={faMagnifyingGlass}></FontAwesomeIcon></Link>
                 {user ? (     
                     <>
                   <Menu/>
