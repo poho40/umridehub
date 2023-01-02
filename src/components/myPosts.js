@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import { deleteFromFireStore } from "../services/firebase";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import * as ROUTES from '../constants/routes';
+import UpdatePosts from "../pages/updateForm";
 
 export default function MyPosts() {
     const { firebase, FieldValue } = useContext(FirebaseContext);
@@ -19,6 +20,10 @@ export default function MyPosts() {
             .delete()
         
     }
+    function UpdatePost(content) {
+       history(ROUTES.UPDATEFORM, {state : {content : content} })
+       return content;
+    }
 
     const {posts} = useUserPosts(); 
     return (<div className="container col-span-3">
@@ -29,7 +34,7 @@ export default function MyPosts() {
             )}
             </>
         ) : (
-            posts.map((content) => <div className = "p-4 pt-1 pb-4 bg-white"><Card key = {content.docId} content = {content}/><button className = "bg-red font-bold text-sm-rounded text-white w-20 h-8 rounded-full" onClick={() => deletePost(content.docId)}>Delete</button></div>)
+            posts.map((content) => <div className = "p-4 pt-1 pb-4 bg-white"><Card key = {content.docId} content = {content}/><button className = "bg-red font-bold text-sm-rounded text-white w-20 h-8 rounded-full" onClick={() => deletePost(content.docId)}>Delete</button><button className = "bg-red font-bold text-sm-rounded text-white w-20 h-8 rounded-full" onClick={() => UpdatePost(content)}>Edit</button></div>)
         )}
     </div>
     );

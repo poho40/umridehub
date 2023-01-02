@@ -3,4 +3,5 @@ export const LOGIN = '/login';
 export const SIGNUP = '/signup';
 export const PROFILE = '/p/:username';
 export const CREATEPOST = '/createPost';
+export const UPDATEFORM = '/updateForm';
 export const NOTFOUND = '/notfound';
