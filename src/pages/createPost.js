@@ -1,4 +1,5 @@
 import Header from "../components/header";
+import Footer from "../components/footer";
 import { useEffect, useState, useContext } from "react";
 import FirebaseContext from "../context/firebase";
 import UserContext from "../context/user";
@@ -40,7 +41,8 @@ import { faArrowUpFromBracket } from "@fortawesome/free-solid-svg-icons";
     return(
         <div className="bg-gray-background">
             <Header />
-            <form className="w-full max-w-lg justify-center grid place-items-center" style={{alignContent:"center", alignItems:'center', paddingBottom:"100px", paddingTop:"15px"}} method="POST"
+            <h1 className=" grid place-items-center font-bold" style={{textAlign:'center'}}>Create a Post</h1>
+            <form className="w-full max-w-lg justify-center grid place-items-center" style={{alignContent:"center", alignItems:'center', paddingBottom:"120px", paddingTop:"20px"}} method="POST"
             onSubmit={(event) => handlePost(event)
         }>
             <div className="flex flex-wrap -mx-3 mb-6">
@@ -112,6 +114,7 @@ import { faArrowUpFromBracket } from "@fortawesome/free-solid-svg-icons";
             <FontAwesomeIcon className="mr-1" icon={faArrowUpFromBracket}></FontAwesomeIcon> <p> Create Post</p>
     </button>
 </form>
+<div style={{marginTop:"80px"}}><Footer /></div>
  </div>
     )
 }
