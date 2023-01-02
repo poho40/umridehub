@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../context/user";
 import * as ROUTES from '../constants/routes'
-import Dashboard from "../pages/dashboard";
 import Menu from "./Menu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
