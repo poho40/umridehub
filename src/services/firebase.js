@@ -45,7 +45,6 @@ export async function myRecentPosts(userId){
         ...photo.data(),
         docId: photo.id
     }));
-    console.log(result);
     const posts = await Promise.all(
         myPosts.map(async (photo) => {
             const user = await getUserByUserId(photo.userId);

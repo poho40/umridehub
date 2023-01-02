@@ -10,14 +10,14 @@ import * as ROUTES from '../constants/routes';
 export default function MyPosts() {
     const { firebase, FieldValue } = useContext(FirebaseContext);
     const history = useNavigate();
-    const refresh = () => window.location.reload(true)
     function deletePost(docId) {
-        refresh();
+        history(ROUTES.DASHBOARD)
         return firebase
-        .firestore()
-        .collection("photos")
-        .doc(docId)
-        .delete()
+            .firestore()
+            .collection("photos")
+            .doc(docId)
+            .delete()
+        
     }
 
     const {posts} = useUserPosts(); 
