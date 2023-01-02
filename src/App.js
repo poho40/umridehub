@@ -28,7 +28,7 @@ export default function App() {
             <Route path = {ROUTES.PROFILE} element={<ProtectedRoute><Profile/></ProtectedRoute>}/>
             <Route path = {ROUTES.CREATEPOST} element={<ProtectedRoute><CreatePost/></ProtectedRoute>}/>
             <Route path = {ROUTES.UPDATEFORM} element={<ProtectedRoute><UpdateForm/></ProtectedRoute>}/>
-            <Route path = {ROUTES.SEARCH} element={<ProtectedRoute><UpdateForm/></ProtectedRoute>}/>
+            <Route path = {ROUTES.SEARCH} element={<ProtectedRoute><Search/></ProtectedRoute>}/>
             <Route element = {<NotFound/>}/>
           </Routes>
         </Suspense>
