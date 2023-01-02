@@ -7,6 +7,8 @@ import { deleteFromFireStore } from "../services/firebase";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import * as ROUTES from '../constants/routes';
 import UpdatePosts from "../pages/updateForm";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function MyPosts() {
     const { firebase, FieldValue } = useContext(FirebaseContext);
@@ -34,7 +36,7 @@ export default function MyPosts() {
             )}
             </>
         ) : (
-            posts.map((content) => <div className = "p-4 pt-1 pb-4 bg-white"><Card key = {content.docId} content = {content}/><button className = "bg-red font-bold text-sm-rounded text-white w-20 h-8 rounded-full" onClick={() => deletePost(content.docId)}>Delete</button><button className = "bg-red font-bold text-sm-rounded text-white w-20 h-8 rounded-full" onClick={() => UpdatePost(content)}>Edit</button></div>)
+            posts.map((content) => <div className = "p-4 pt-1 pb-4 bg-white"><Card key = {content.docId} content = {content}/><button className = "bg-red font-bold text-sm-rounded text-white w-20 h-8 rounded-full" onClick={() => deletePost(content.docId)}><FontAwesomeIcon className="mr-1" icon={faTrash}></FontAwesomeIcon></button><span style={{float:'right'}}><button className = "bg-gray-dark font-bold text-sm-rounded text-white w-20 h-8 rounded-full" onClick={() => UpdatePost(content)}><FontAwesomeIcon className="mr-1" icon={faPencil}></FontAwesomeIcon> </button></span></div>)
         )}
     </div>
     );
