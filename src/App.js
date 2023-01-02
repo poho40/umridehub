@@ -11,6 +11,7 @@ const Dashboard = lazy(()=>import('./pages/dashboard'));
 const Profile = lazy(()=>import('./pages/profile'));
 const CreatePost = lazy(()=>import('./pages/createPost'));
 const UpdateForm= lazy(()=>import('./pages/updateForm'));
+const Search= lazy(()=>import('./pages/search'));
 const NotFound = lazy(()=>import('./pages/notfound'));
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
             <Route path = {ROUTES.PROFILE} element={<ProtectedRoute><Profile/></ProtectedRoute>}/>
             <Route path = {ROUTES.CREATEPOST} element={<ProtectedRoute><CreatePost/></ProtectedRoute>}/>
             <Route path = {ROUTES.UPDATEFORM} element={<ProtectedRoute><UpdateForm/></ProtectedRoute>}/>
+            <Route path = {ROUTES.SEARCH} element={<ProtectedRoute><UpdateForm/></ProtectedRoute>}/>
             <Route element = {<NotFound/>}/>
           </Routes>
         </Suspense>
