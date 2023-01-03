@@ -24,7 +24,10 @@ export default function Menu() {
   marginTop: "10%",
   padding: "0.5em 0.6em"}}> </FontAwesomeIcon><div className = "flex items-center cursor-pointer mr-3">
                 </div></button>
-        <div className="dropdown-content">
+        <div className="dropdown-content"  style={{
+          width: "100%",
+          right:"40%",
+          }}>
                 <p><b>{user.fullName}</b></p>
                 <p>{user.emailAddress}</p>
                 <Link to={ROUTES.DASHBOARD}>
