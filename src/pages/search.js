@@ -8,7 +8,7 @@ import * as ROUTES from '../constants/routes';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpFromBracket } from "@fortawesome/free-solid-svg-icons";
 import usePosts from "../hooks/use-posts"
-
+export default function Search(){
     return(
         <div className="bg-gray-background">
             <Header />
