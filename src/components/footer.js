@@ -9,13 +9,10 @@ export default function Footer() {
 
     return(
         <footer className="bg-white justify-center" style={{textAlign:'center'}}>
-            <div className="=footer-content">
+            {/* <div className="=footer-content">
                 <img style={{maxWidth: "23%"}} src="https://media.discordapp.net/attachments/925170620931661844/1059234452166955038/typography.png"/>
-                <p></p>
-                <ul className="socials">
-                </ul>
-            </div>
-            <div className="footer-bottom">
+            </div> */}
+            <div className="footer-bottom" style={{marginTop:'10%'}}>
                 <p style={{color:'white'}}>Copyright © 2022-2023 UMRideHub - All Rights Reserved. </p>
                         <div className="footer-menu">
                         <ul className="f-menu" style={{paddingBottom:'10px', paddingTop:'10px'}}>
